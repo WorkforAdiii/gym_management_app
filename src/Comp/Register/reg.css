@@ -1,0 +1,16 @@
+.customRegister::-webkit-scrollbar {
+  width: 3px;  /* Thinner scrollbar */
+}
+
+.customRegister::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4); /* Light white thumb */
+  border-radius: 10px;
+}
+
+.customRegister::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+
+
+
