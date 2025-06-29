@@ -1,12 +1,51 @@
-# React + Vite
+# Gym Management System Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the React frontend for the Gym Management System built with Vite and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Install Dependencies
 
-## Expanding the ESLint configuration
+```
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Configure Backend API URL
+
+The frontend uses [axios](https://axios-http.com/) for API requests. By default, it is set to `http://localhost:5000` in `src/main.jsx`:
+
+```
+axios.defaults.baseURL = "http://localhost:5000";
+```
+
+If your backend runs on a different URL or port, update this value accordingly.
+
+### 3. Start the Development Server
+
+```
+npm run dev
+```
+
+The app will be available at [http://localhost:5173](http://localhost:5173) by default.
+
+### 4. Backend Requirement
+
+The backend (Node.js/Express/MongoDB) must be running and accessible at the base URL specified above for the app to function correctly.
+
+## Features
+- User authentication (login/register/forgot password)
+- Member management
+- Membership plans
+- Dashboard and stats
+- Responsive UI with Tailwind CSS
+
+## Project Structure
+- `src/Comp/` - Reusable components
+- `src/Pages/` - Main pages/routes
+
+## Customization
+- Update API endpoints or add new features as needed.
+
+---
+
+For backend setup, see the backend README or documentation.

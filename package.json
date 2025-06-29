@@ -15,9 +15,11 @@
     "@mui/icons-material": "^7.1.2",
     "@mui/material": "^7.1.2",
     "@tailwindcss/vite": "^4.1.10",
+    "axios": "^1.10.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2",
+    "react-switch": "^7.1.0",
     "tailwindcss": "^4.1.10"
   },
   "devDependencies": {
@@ -30,5 +32,17 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "vite": "^6.3.5"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "index.jsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WorkforAdiii/gym_management_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WorkforAdiii/gym_management_app/issues"
+  },
+  "homepage": "https://github.com/WorkforAdiii/gym_management_app#readme"
 }
