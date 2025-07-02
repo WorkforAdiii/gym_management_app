@@ -20,6 +20,13 @@ const Dashboard = () => {
   const [showMessage, setShowMessage] = useState(false);
   const messageRef = useRef();
 
+  // Function to set sessionStorage value when a card is clicked
+  const handleCardClick = (value) => {
+    sessionStorage.setItem("userType", value);
+    // You can also log or use the value here if needed
+    // console.log('Set userType:', value);
+  };
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -74,6 +81,7 @@ const Dashboard = () => {
           <Link
             to={stat.to}
             key={index}
+            onClick={() => handleCardClick(stat.title)}
             className={`rounded-2xl min-h-[220px] p-8 bg-slate-950 border border-white/30 backdrop-blur-md shadow-xl flex flex-col items-center justify-center text-center transition-all duration-300 transform hover:scale-105 cursor-pointer group hover:bg-white/70 hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]`}
           >
             <div className="text-6xl mb-5 transition-all duration-300 group-hover:scale-110">
