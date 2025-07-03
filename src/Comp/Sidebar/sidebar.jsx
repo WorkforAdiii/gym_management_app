@@ -28,7 +28,7 @@ useEffect(()=>{
 
   const handleLogout = () => {
     // Add logout logic here
-    navigate('/');
+    navigate('/login');
   };
 
   return (

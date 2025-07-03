@@ -1,6 +1,5 @@
 import React from "react";
 import Register from "../../Comp/Register/reg";
-import Login from "../../Comp/Login/login";
 
 const Home = () => {
   return (
@@ -15,9 +14,6 @@ const Home = () => {
         <div className="w-full lg:flex gap-50 items-start px-10 mt-1 justify-center items-center">
           <div className="-mt-6">
             <Register className="border-4 border-white-500 rounded-lg p-4 pt-1" />
-          </div>
-          <div className="mt-6">
-            <Login className="border-4 border-white-500 rounded-lg p-4" />
           </div>
         </div>
       </div>

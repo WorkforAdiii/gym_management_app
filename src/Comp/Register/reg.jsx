@@ -1,7 +1,17 @@
 import React from 'react';
 import './reg.css';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
+  const handleRegister = (e) => {
+    e.preventDefault();
+    // Simulate successful registration
+    navigate('/login');
+  };
+  const handleLoginRedirect = () => {
+    navigate('/login');
+  };
   return (
     <div className="customRegister w-[600px] h-[600px] w-1/3 p-10 mt-20 ml-20 rounded-xl shadow-2xl bg-slate-10 backdrop-blur-md border border-white/20 h-[450px] overflow-y-auto">
       <h2 className="text-3xl font-semibold text-center text-white mb-8" style={{ fontFamily: '"Times New Roman", serif' }}> Create Your Member Profile </h2>
@@ -29,8 +39,8 @@ const Register = () => {
         <label className="block mb-4 text-white font-semibold ">Upload Profile Image<input type="file" accept="image/*" className="mt-2 block w-full text-sm text-white file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-blue-500 file:text-white hover:file:bg-blue-600 transition "/></label>
       </div>
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaKv_3uWI17LyXz6dLfGzLAeETYstVDwuCHg&s" className='mb-5 w-[250px] h-[200px]' />
-      <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition text-lg font-semibold cursor-pointer hover:scale-105">Register</button>
-      <h2 className ="text-white text-sm mt-6 text-center"> Already have an account? <span className="text-blue-300 underline cursor-pointer">Login</span></h2>
+      <button onClick={handleRegister} className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition text-lg font-semibold cursor-pointer hover:scale-105">Register</button>
+      <h2 className ="text-white text-sm mt-6 text-center"> Already have an account? <span className="text-blue-300 underline cursor-pointer" onClick={handleLoginRedirect}>Login</span></h2>
     </div>
   );
 };
