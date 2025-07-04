@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Addmembership = () => {
   const [formData, setformData] = useState({
@@ -9,6 +9,10 @@ const Addmembership = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setformData((prev) => ({
@@ -18,6 +22,7 @@ const Addmembership = () => {
   };
 
   const handleAddMembership = async () => {
+    console.log(formData);
     setError("");
     setSuccess("");
     if (!formData.months || !formData.price) {

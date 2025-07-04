@@ -309,34 +309,38 @@ const GeneralUser = () => {
       )}
 
       <div className="bg-slate-900 p-5 mt-5 rounded-lg grid gap-6 grid-cols-3 max-h-[540px] overflow-y-auto customMemberScrollbar">
-        {filteredMembers.slice(startFrom, endTo).map((member, index) => (
-          <Link
-            to={`/member/${index}`}
-            key={index}
-            className="bg-slate-950 text-white border border-white/40 rounded-xl p-4 shadow-lg hover:bg-white/30 hover:scale-105 transition-all duration-300"
-          >
-            <div className="w-28 h-28 mx-auto relative border-2 p-1 rounded-full">
-              <img
-                src={member.image}
-                className="w-full h-full rounded-full object-cover"
-                alt={member.name}
-              />
-              <CircleIcon
-                className="absolute top-0 left-0"
-                sx={{
-                  color: member.status === "green" ? "greenyellow" : "red",
-                }}
-              />
-            </div>
-            <div className="mt-5 text-center text-xl font-semibold font-[Times New Roman]">
-              {member.name}
-            </div>
-            <div className="mt-2 text-center text-lg">{member.phone}</div>
-            <div className="mt-2 text-center text-md">
-              Next Bill Date: {member.nextBillDate}
-            </div>
-          </Link>
-        ))}
+        {filteredMembers.slice(startFrom, endTo).map((member, index) => {
+          // Find the global index in allMembers
+          const globalIndex = allMembers.findIndex(m => m.name === member.name && m.phone === member.phone);
+          return (
+            <Link
+              to={`/members/${globalIndex + 1}`}
+              key={globalIndex}
+              className="bg-slate-950 text-white border border-white/40 rounded-xl p-4 shadow-lg hover:bg-white/30 hover:scale-105 transition-all duration-300"
+            >
+              <div className="w-28 h-28 mx-auto relative border-2 p-1 rounded-full">
+                <img
+                  src={member.image}
+                  className="w-full h-full rounded-full object-cover"
+                  alt={member.name}
+                />
+                <CircleIcon
+                  className="absolute top-0 left-0"
+                  sx={{
+                    color: member.status === "green" ? "greenyellow" : "red",
+                  }}
+                />
+              </div>
+              <div className="mt-5 text-center text-xl font-semibold font-[Times New Roman]">
+                {member.name}
+              </div>
+              <div className="mt-2 text-center text-lg">{member.phone}</div>
+              <div className="mt-2 text-center text-md">
+                Next Bill Date: {member.nextBillDate}
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

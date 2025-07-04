@@ -6,8 +6,15 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const [forgotPassword, setForgotPassword] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  React.useEffect(() => {
+    console.log({ username, password });
+  }, [username, password]);
 
   const handleLogin = () => {
+    console.log({ username, password });
     sessionStorage.setItem("isLogin", true);
     navigate("/dashboard");
   };
@@ -35,11 +42,17 @@ const Login = () => {
           <input
             type="text"
             placeholder="Enter username"
-            className="w-full mb-6 px-4 py-3 rounded-lg bg-slate-10 text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+            className="w-full mb-6 px-4 py-3 rounded-lg bg-slate-10 text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
           <input
             type="password"
             placeholder="Enter password"
-            className="w-full mb-6 px-4 py-3 rounded-lg bg-slate-10 text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+            className="w-full mb-6 px-4 py-3 rounded-lg bg-slate-10 text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
           {/* ✅ Correct onClick usage */}
           <button
             onClick={handleLogin}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Stack from "@mui/material/Stack";
 import LinearProgress from "@mui/material/LinearProgress";
 
@@ -11,6 +11,10 @@ const AddMember = () => {
     plan: "",
     file: null, // Cloudinary URL
   });
+
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   const [isUploading, setIsUploading] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -35,7 +39,7 @@ const AddMember = () => {
     setIsUploading(true);
     try {
       const res = await fetch(
-        "https://api.cloudinary.com/v1_1/dnhtx5b8k/image/upload",
+        "https://api.cloudinary.com/v1_1/dqcz17jse/image/upload",
         {
           method: "POST",
           body: data,
@@ -51,6 +55,7 @@ const AddMember = () => {
   };
 
   const handleRegister = async () => {
+    console.log(formData);
     setError("");
     setSuccess("");
     const { name, mobile, address, date, plan, file } = formData;

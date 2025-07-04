@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+const emailSuggestions = [
+  "gmail.com",
+  "yahoo.com",
+  "outlook.com",
+  "hotmail.com",
+  "icloud.com"
+];
 
 const ForgotPassword = () => {
+  const [email, setEmail] = useState("");
   const [emailSubmit, setEmailSubmit] = useState(false);
   const [otp, setOtp] = useState("");
   const [generatedOtp, setGeneratedOtp] = useState("");
@@ -8,16 +17,21 @@ const ForgotPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  // Log all values on every change
+  useEffect(() => {
+    console.log({ email, otp, newPassword, confirmPassword });
+  }, [email, otp, newPassword, confirmPassword]);
+
   const handleSendOtp = () => {
+    console.log({ email });
     const randomOtp = Math.floor(100000 + Math.random() * 900000).toString();
     setGeneratedOtp(randomOtp);
     setEmailSubmit(true);
-
-    // Simulate sending the OTP
     alert(`OTP sent: ${randomOtp}`);
   };
 
   const handleVerifyOtp = () => {
+    console.log({ otp, generatedOtp });
     if (otp === generatedOtp) {
       setOtpVerified(true);
     } else {
@@ -26,15 +40,14 @@ const ForgotPassword = () => {
   };
 
   const handleResetPassword = () => {
+    console.log({ newPassword, confirmPassword });
     if (newPassword !== confirmPassword) {
       alert("Passwords do not match!");
     } else {
       alert("Password reset successfully!");
-      onclose();
+      // onclose();
     }
   };
-
-  
 
   return (
     <div className="w-full text-white p-6 max-w-xl mx-auto">
@@ -46,8 +59,14 @@ const ForgotPassword = () => {
         <input
           type="email"
           placeholder="Enter your email"
+          id="email"
           className="w-full px-5 py-3 rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+        <datalist id="email-suggestions">
+          {emailSuggestions.map(domain => (
+            <option key={domain} value={email.split('@')[0] ? email.split('@')[0] + '@' + domain : domain} />
+          ))}
+        </datalist>
       </div>
 
       {/* Send OTP Button */}
@@ -69,7 +88,7 @@ const ForgotPassword = () => {
           <input
             type="text"
             value={otp}
-            onChange={(e) => setOtp(e.target.value)}
+            onChange={e => setOtp(e.target.value)}
             placeholder="Enter OTP"
             className="w-full px-5 py-3 rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -92,14 +111,14 @@ const ForgotPassword = () => {
             type="password"
             placeholder="New Password"
             value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
+            onChange={e => setNewPassword(e.target.value)}
             className="w-full px-5 py-3 rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/30"
           />
           <input
             type="password"
             placeholder="Confirm Password"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={e => setConfirmPassword(e.target.value)}
             className="w-full px-5 py-3 rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/30"
           />
           <button

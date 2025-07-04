@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Switch from 'react-switch';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -45,6 +45,10 @@ const MemberDetails = () => {
   const [status, setStatus] = useState(member.status === 'green');
   const [renew, setRenew] = useState(false);
   const [membership, setMembership] = useState(member.membership || '1 Month Membership');
+
+  useEffect(() => {
+    console.log({ status, renew, membership });
+  }, [status, renew, membership]);
 
   // Show the second section only if both status and renew are ON
   const showMembershipSection = status && renew;
@@ -108,7 +112,7 @@ const MemberDetails = () => {
                 <option className='text-white bg-slate-950'>12 Month Membership</option>
               </select>
             </label>
-            <button className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-400 text-white font-bold text-lg shadow-lg hover:scale-105 transition">Save</button>
+            <button className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-400 text-white font-bold text-lg shadow-lg hover:scale-105 transition" onClick={() => console.log({ status, renew, membership })}>Save</button>
           </div>
         )}
       </div>
