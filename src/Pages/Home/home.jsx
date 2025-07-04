@@ -12,7 +12,7 @@ const Home = () => {
 
       <div className='flex-1 bg-cover bg-center bg-no-repeat flex items-start justify-center pt-0.5 bg-[url("https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?cs=srgb&dl=pexels-anush-1229356.jpg&fm=jpg")]'>
         <div className="w-full lg:flex gap-50 items-start px-10 mt-1 justify-center items-center">
-          <div className="-mt-6">
+          <div className="-mt-7 mr-250">
             <Register className="border-4 border-white-500 rounded-lg p-4 pt-1" />
           </div>
         </div>

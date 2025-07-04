@@ -139,7 +139,7 @@ const Member = () => {
       <div className="bg-slate-900 p-5 mt-3 rounded-lg grid gap-6 grid-cols-3 max-h-[540px] overflow-y-auto customMemberScrollbar">
         {members.slice(startFrom, endTo).map((member, index) => (
           <Link
-            to={`/member/${index}`}
+            to={`/members/${startFrom + index + 1}`}
             key={index}
             className="bg-slate-950 text-white border border-white/40 rounded-xl p-4 shadow-lg hover:bg-white/30 hover:scale-105 transition-all duration-300"
           >

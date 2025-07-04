@@ -26,7 +26,7 @@ const Login = () => {
         </div>
       </div>
       <div className="flex flex-1 items-center justify-center" style={{ minHeight: 'calc(100vh - 120px)' }}>
-        <div className="w-[600px] h-[600px] w-1/3 p-10 rounded-xl shadow-2xl bg-black/80 backdrop-blur-md border border-white/20 h-fit mb-10 ml-10">
+        <div className="w-[600px] h-[600px] w-1/3 p-10 rounded-xl shadow-2xl bg-black/80 backdrop-blur-md border border-white/20 h-fit mb-10 mr-1">
           <h2
             className="text-3xl font-semibold text-center text-white mb-8"
             style={{ fontFamily: '"Times New Roman", serif' }}>
